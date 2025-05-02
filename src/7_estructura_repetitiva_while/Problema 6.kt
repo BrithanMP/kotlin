@@ -28,5 +28,5 @@ fun main() {
         suma2 = suma + valor2
         x = x + 1
     }
-    println("la suma de los 10 valores ingresados es $suma2"
+    println("la suma de los 10 valores ingresados es $suma2")
 }
