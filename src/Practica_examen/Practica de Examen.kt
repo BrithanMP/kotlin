@@ -35,7 +35,7 @@ fun main() {
         }
     }
     val promedio = sumnotas / 5
-    println("Nota más baja $Nb") a $Na")
+    println("Nota más baja $Nb")
     println("Cantidad de aprobados $aprobado")
     println("cantidad de reprobados $reprobado")
     println("promedio de las notas $promedio")
