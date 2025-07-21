@@ -40,5 +40,4 @@ fun main(){
     } else {
         println("el menor no se repite")
     }
-
 }
