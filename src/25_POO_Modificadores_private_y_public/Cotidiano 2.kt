@@ -1,42 +1,58 @@
 package `25_POO_Modificadores_private_y_public`
 
-class sensorTemperatura(){
+class sensorTemperatura() {
     private var temperatura: Double = 0.0
 
-    fun configurarTemperatura(valor: Double){
-        validarRango(valor)
-    }
-
-    private fun validarRango(valor: Double) {
-        if (valor >= -50 || valor <= 150) {
+    fun configurarTemperatura(valor: Double) {
+        if (ValidarRango(valor)){
             temperatura = valor
-        } else {
-            println("False")
+        }else{
+            println("syntax Error")
         }
     }
 
-    fun aumentar(delta: Double){
-        validarRango(delta)
-        temperatura += delta
+    private fun ValidarRango(valor: Double): Boolean {
+       return valor in -50.0..150.0
     }
 
-    fun disminuir(delta: Double){
-        validarRango(delta)
-        temperatura -= delta
+    fun Aumentar(delta: Double){
+        val Tempsuma = temperatura + delta
+        if (ValidarRango(Tempsuma)){
+            temperatura = Tempsuma
+        }else{
+            println("error")
+        }
+
+
     }
 
-    fun mostrar(){
-        temperatura = temperatura + 0.1
-        println("la temperatura actual es de $temperatura")
+    fun Disminuir(delta: Double){
+        val TempResta = temperatura - delta
+        if (ValidarRango(delta)) {
+            temperatura = TempResta
+        }else{
+            println("error")
+        }
+    }
+
+    fun Mostrar(){
+        println("temperatura $temperatura°")
+        ValidarRango1(temperatura)
+    }
+    private fun ValidarRango1(valor: Double): Boolean {
+        if (valor >= -50.0 && valor <= 150.0) {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
-fun main() {
-    val sensor = sensorTemperatura()
-    sensor.configurarTemperatura(50.3)
-    sensor.aumentar(20.0)
-    sensor.disminuir(60.3)
-    sensor.mostrar()
-}
 
-//no se cual error tengo : (
+fun main(){
+    val SensorTemperatura1 = sensorTemperatura()
+    SensorTemperatura1.configurarTemperatura(10.0)
+    SensorTemperatura1.Aumentar(90.8)
+    SensorTemperatura1.Disminuir(50.8)
+    SensorTemperatura1.Mostrar()
+}
