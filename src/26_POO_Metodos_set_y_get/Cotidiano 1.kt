@@ -15,7 +15,6 @@ class Jardin() {
                 field = 1.0
         }
 
-    //______________________________________________________________
 
     var ancho: Double = 0.0
         set(valor) {
@@ -25,19 +24,24 @@ class Jardin() {
                 field = 1.0
         }
 
-    //______________________________________________________________
+
 
     var tipozacate: Int = 0
         set(valor) {
-            when {
-                valor == 1 -> field = Criollo
-                valor == 2 -> field = Americano
-                valor == 3 -> field = cintetico
-                else -> field == Criollo
+            field = valor
+            precioZacate = when (valor) {
+                1 -> Criollo
+                2 -> Americano
+                3 -> cintetico
+                else -> Criollo
             }
         }
 
-    //______________________________________________________________
+    private var precioZacate: Int = Criollo
+
+
+
+
 
     private val nombreZacate: String
         get() = when (tipozacate) {
@@ -47,7 +51,7 @@ class Jardin() {
             else -> "CRIOLLO"
         }
 
-    //______________________________________________________________
+
 
     private var area: Double = 0.0
         get() = largo * ancho
@@ -58,7 +62,6 @@ class Jardin() {
         get()= 500 * area
 
 
-    //______________________________________________________________
 
     private var enzacatado: Double = 0.0
         get()= area * tipozacate
@@ -67,20 +70,17 @@ class Jardin() {
     private var SubTotal: Double = 0.0
         get()= enzacatado + ManoObra
 
-    //______________________________________________________________
 
     private var ImpuestoVentas: Double = 0.0
         get() = SubTotal * 0.13
 
 
-    //______________________________________________________________
 
     private var TotalPagar: Double = 0.0
         get()= SubTotal + ImpuestoVentas
 
 
 
-    //______________________________________________________________
 
     fun ImprimirDetalle(){
         println("Largo del Jardin: $largo y ancho: $ancho")
@@ -96,11 +96,11 @@ class Jardin() {
 
 }
 
-   //______________________________________________________________
+
 
 fun main(){
     val Jardin1 = Jardin()
-    Jardin1.tipozacate = 3
+    Jardin1.tipozacate = 2
     Jardin1.ancho = 80.0
     Jardin1.largo = 50.0
     Jardin1.ImprimirDetalle()
